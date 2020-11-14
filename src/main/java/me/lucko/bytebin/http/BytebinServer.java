@@ -62,10 +62,10 @@ public class BytebinServer {
         });
 
         // define route handlers
-        defineOptionsRoute(this.server, "/post", "POST", "Content-Type, Content-Encoding, Allow-Modification");
+        defineOptionsRoute(this.server, "/", "POST", "Content-Type, Content-Encoding, Allow-Modification");
         defineOptionsRoute(this.server, "/*", "GET, PUT", "Content-Type, Content-Encoding, Modification-Key");
-        this.server.page("/").html(indexPage);
-        this.server.post("/post").managed(false).serve(new PostHandler(this, postRateLimiter, contentStorageHandler, contentCache, contentTokenGenerator, maxContentLength, lifetimeMillis, lifetimeMillisByUserAgent));
+        this.server.get("/").html(indexPage);
+        this.server.post("/").managed(false).serve(new PostHandler(this, postRateLimiter, contentStorageHandler, contentCache, contentTokenGenerator, maxContentLength, lifetimeMillis, lifetimeMillisByUserAgent));
         this.server.get("/*").managed(false).cacheCapacity(0).serve(new GetHandler(this, readRateLimiter, contentCache));
         this.server.put("/*").managed(false).cacheCapacity(0).serve(new PutHandler(this, putRateLimiter, contentStorageHandler, contentCache, maxContentLength, lifetimeMillis));
     }

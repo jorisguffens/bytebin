@@ -1,0 +1,14 @@
+{
+	"postRateLimitPeriodMins": 10,
+	"postRateLimit": 30,
+	"updateRateLimitPeriodMins": 2,
+	"updateRateLimit": 26,
+	"readRateLimitPeriodMins": 2,
+	"readRateLimit": 30,
+	"keyLength": 7,
+	"maxContentLengthMb": 10,
+	"lifetimeMinutes": 1440,
+	"lifetimeMinutesByUserAgent": {
+		"SuperCoolCustomAgent": 2880
+	}
+}

@@ -22,7 +22,7 @@ The API fully supports CORS. wooo :tada:
 * content can be read from `/{key}`.
 
 ### posting content
-* send a POST request to `/post`.
+* send a POST request to `/`.
 * the request body should contain the content to be uploaded.
 * it is recommended to provide `Content-Type` and `User-Agent` headers, but this is not required.
 * ideally, content should be compressed with GZIP before being uploaded. Include the `Content-Encoding: gzip` header if this is the case.
@@ -53,6 +53,22 @@ and plain old java for everything else.
 ## is it fast or efficient
 
 well it's written in java, but.. [rapidoid is pretty fast](https://www.techempower.com/benchmarks/#section=data-r15&hw=ph&test=plaintext&a=2), and [so is caffeine](https://github.com/ben-manes/caffeine/wiki/Benchmarks).
+
+## docker
+
+A simple docker compose example
+```
+version: '3.5'
+
+services:
+  bytebin:
+    image: jorisguffens/bytebin:latest
+    container_name: bytebin
+    ports:
+      - 8080:80
+    volumes:
+      - ./config.yml:/usr/src/app/config.yml
+```
 
 ## license
 MIT, go wild.
