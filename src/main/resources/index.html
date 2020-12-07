@@ -77,7 +77,7 @@
             var compressed = pako.gzip(content)
 
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "post", true);
+            xhr.open("POST", "/", true);
             xhr.setRequestHeader("Content-Type", "text/plain");
             xhr.setRequestHeader("Content-Encoding", "gzip");
             xhr.onreadystatechange = function() {
@@ -95,7 +95,7 @@
     <textarea id="content" spellcheck="false" placeholder="Type/paste the context you'd like to upload here..."></textarea>
 </div>
 <div id="nav">
-    <a class="nav-left" href="https://github.com/lucko/bytebin">[about bytebin]</a>
+    <a class="nav-left" href="https://github.com/jorisguffens/bytebin">[about bytebin]</a>
     <a onclick="submit()">[upload]</a>
 </div>
 </body>
